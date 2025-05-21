@@ -220,6 +220,7 @@ deleteButton.addEventListener('click', () => {
         operator = '';
         typingSecond = false;
         bottomDisplay.textContent = bottomDisplay.textContent.slice(0, -1);
+        hasDecimal = first.includes('.');
         resizeTextToFit(bottomDisplay);
     } else if (second.length) {
         if (second.at(-1) === '.') {
