@@ -88,19 +88,10 @@ button:hover {
     background-color:  #505050;
 }
 
-.number, .decimal {
+.number, .decimal, .delete {
     background-color: #343432d3;
 }
 
 .row button:last-child {
     margin-right: 0;
 }
-
-.double {
-    flex: none;
-    width: calc(2 * ((100% - 3 * 1vw) / 4) + 1vw);
-    aspect-ratio: auto;
-    justify-content: flex-start;
-    padding-left: 20px;
-}
-
