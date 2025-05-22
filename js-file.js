@@ -48,24 +48,31 @@ const deleteButton = document.querySelector('.delete');
 /* Clicking a number button */
 numberButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-        if (typingSecond && !operator) {
+        if (topDisplay.textContent) {
+            first = btn.textContent;
+            second = '';
+            typingSecond = false;
+            bottomDisplay.textContent = first;
+            resizeTextToFit(bottomDisplay);
+            topDisplay.textContent = ''
+        } else if (typingSecond && !operator) {
             first = btn.textContent;
             typingSecond = false;
             bottomDisplay.textContent = first;
             topDisplay.textContent = second;
             resizeTextToFit(bottomDisplay);
             resizeTextToFit(topDisplay);
-            return
-        }
-        let val = !typingSecond ? first + btn.textContent : second + btn.textContent;
-        if (!typingSecond) {
-            first = val;
-            bottomDisplay.textContent = formatNumber(parseFloat(val));
-            resizeTextToFit(bottomDisplay);
         } else {
-            second = val;
-            bottomDisplay.textContent += btn.textContent;
-            resizeTextToFit(bottomDisplay);
+            let val = !typingSecond ? first + btn.textContent : second + btn.textContent;
+            if (!typingSecond) {
+                first = val;
+                bottomDisplay.textContent = formatNumber(parseFloat(val));
+                resizeTextToFit(bottomDisplay);
+            } else {
+                second = val;
+                bottomDisplay.textContent += btn.textContent;
+                resizeTextToFit(bottomDisplay);
+            }
         }
     });
 });
